@@ -1,0 +1,37 @@
+
+spring:
+  banner:
+    location : "config/banner.txt"
+pro:
+    name : "wangziwen"
+my:
+servers:
+   - dev.example.com
+   - another.example.com
+   
+server:
+ port: 8080
+---
+spring:
+ profiles: devlopment
+server:
+ port: 8081
+---
+spring:
+ profiles: production
+server:
+ port: 8091
+ 
+---
+spring:
+ profiles: forward
+server:
+ port: 8092
+
+#当项目的profiles=forward被激活时,同时也激活了profiles=devlopment和profiles=production 
+#已最后被激活的为准  例如包含相同属性，则以devlopment对应的配置文件中为准   本例中profiles最终为devlopment
+spring.profiles: forward
+spring.profiles.include:
+  - production
+  - devlopment
+ 

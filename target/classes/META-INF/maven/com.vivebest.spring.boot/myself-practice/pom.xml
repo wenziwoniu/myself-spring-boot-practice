@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.vivebest.spring.boot</groupId>
+  <artifactId>myself-practice</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- Inherit defaults from Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.BUILD-SNAPSHOT</version>
+<!-- 		<version>1.5.9.RELEASE</version> -->
+	</parent>
+	
+	<dependencies>
+		
+		<!-- 该依赖会间接引入 tomcat、spring mvc相关jar spring boot自动配置功能根据这些jar会自动进行相关配置，
+		使项目成为一个web项目 -->
+		<!-- Add typical dependencies for a web application -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- 该依赖会引入spring-jdbc HikariCP等相关jar,从而会自动构建DataSource连接池 
+			若果自定义了一个dataSource bean,则不会自动构建默认的dataSource
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<!-- 该依赖会引入hsldb相关jar，结合jdbc或jpa相关jar,spring boot自动构建一个内存数据库及相关连接池
+			若果项配置文件中配置了spring.datasource.url属性，则不会构建内存数据库 -->
+		<!-- 
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		 -->
+	
+		<!-- 该依赖会引入spring-data hibernate jpa orm等相关jar -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+	
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+	
+		<!-- 热加载  不是严格意义的热加载，当程序或资源文件变更时，会自动重启程序，而不是只加载被修改的文件
+		  该工具默认禁用缓存 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+	<!--
+	<dependency>
+		<groupId>c3p0</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.1.2</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	 -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>druid</artifactId>
+		<version>0.2.6</version>
+	</dependency>
+	
+	<dependency>  
+	    <groupId>org.springframework.boot</groupId>  
+	    <artifactId>spring-boot-starter-thymeleaf</artifactId>  
+    </dependency>
+
+	
+	
+</dependencies>
+  
+  
+  
+</project>
